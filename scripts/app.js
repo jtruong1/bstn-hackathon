@@ -1,9 +1,10 @@
 let currentPrompt = getInitialPrompt();
 
-let responses = [
-    // { message: string, timestamp: integer (unix milliseconds) }
-];
-let responseCount = 0;
+let messagesEl = document.querySelector('.ask__messages');
+
+messagesEl.addEventListener('reply', (e) => {
+    displayAiMessage(e.detail);
+});
 
 let formEl = document.querySelector('.ask__form');
 
@@ -13,15 +14,17 @@ formEl.addEventListener('submit', (e) => {
     let message = e.target.message.value;
     message = message.trim();
     // console.log(message);
-    
+
+    e.target.message.value = '';
+
     if (message.length === 0) {
         return;
     }
 
     // After n responses, the prompt's context will reset to prevent the conversation from getting stuck in a loop.
-    if (responseCount > 3) {
-        // currentPrompt = getInitialPrompt();
-    }
+    /*if (responseCount > 3) {
+        currentPrompt = getInitialPrompt();
+    }*/
 
     // Append our message to the prompt.
     currentPrompt += '\nHuman: ' + message + '\nV: ';
@@ -52,11 +55,6 @@ formEl.addEventListener('submit', (e) => {
         let response = result.data.choices[0].text;
         response = response.trim();
 
-        responses.push({
-            message: response,
-            timestamp: result.data.timestamp
-        });
-
         // Append the AI's response.
         currentPrompt += response;
 
@@ -65,14 +63,26 @@ formEl.addEventListener('submit', (e) => {
         console.log('Response: ' + response);
         console.log('Prompt: ' + currentPrompt);
 
-        displayAiMessage(response);
-
-        responseCount++;
+        messagesEl.dispatchEvent(
+            new CustomEvent('reply', {detail: response})
+        );
     }).catch(error => {
         console.log(error);
-
-        responseCount = 0;
     });
+});
+
+let messageEl = document.getElementById('askInput');
+
+messageEl.addEventListener('keypress', (e) => {
+    if (e.key === 'Enter') {
+        // Prevent making a new line.
+        e.preventDefault();
+
+        // Manually fire the submit event to the form.
+        e.target.form.dispatchEvent(
+            new Event('submit', {cancelable: true})
+        );
+    }
 });
 
 function getInitialPrompt() {
@@ -84,8 +94,6 @@ function getInitialPrompt() {
 }
 
 function displayUserMessage(message) {
-    let responsesEl = document.getElementById('responses');
-
     let userMessageContainerEl = document.createElement('div');
     userMessageContainerEl.classList.add('ask__right');
 
@@ -100,12 +108,10 @@ function displayUserMessage(message) {
     userMessageContainerEl.appendChild(userMessageEl);
     userMessageContainerEl.appendChild(userAvatarEl);
 
-    responsesEl.appendChild(userMessageContainerEl);
+    messagesEl.appendChild(userMessageContainerEl);
 }
 
 function displayAiMessage(message) {
-    let responsesEl = document.getElementById('responses');
-
     let aiMessageContainerEl = document.createElement('div');
     aiMessageContainerEl.classList.add('ask__left');
 
@@ -120,5 +126,5 @@ function displayAiMessage(message) {
     aiMessageContainerEl.appendChild(aiMessageEl);
     aiMessageContainerEl.appendChild(aiAvatarEl);
 
-    responsesEl.appendChild(aiMessageContainerEl);
+    messagesEl.appendChild(aiMessageContainerEl);
 }
