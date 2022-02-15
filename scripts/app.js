@@ -1,12 +1,6 @@
+const OPENAI_API_KEY = 'YOUR_API_KEY';
+
 let currentPrompt = getInitialPrompt();
-
-let messagesEl = document.querySelector('.ask__messages');
-
-messagesEl.addEventListener('reply', (e) => {
-    displayAiMessage(e.detail);
-
-    // We can put timeout/delay logic here so we can do typing indicators, animations, etc.
-});
 
 let formEl = document.querySelector('.ask__form');
 
@@ -49,7 +43,7 @@ formEl.addEventListener('submit', (e) => {
         {
             headers: {
                 'Content-Type': 'application/json',
-                'Authorization': 'Bearer ' + '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'
+                'Authorization': 'Bearer ' + OPENAI_API_KEY
             }
         },
     );
@@ -87,6 +81,14 @@ messageEl.addEventListener('keypress', (e) => {
             new Event('submit', {cancelable: true})
         );
     }
+});
+
+let messagesEl = document.querySelector('.ask__messages');
+
+messagesEl.addEventListener('reply', (e) => {
+    displayAiMessage(e.detail);
+
+    // We can put timeout/delay logic here so we can do typing indicators, animations, etc.
 });
 
 function getInitialPrompt() {
