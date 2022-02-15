@@ -59,7 +59,7 @@ formEl.addEventListener('submit', (e) => {
 
         let userIconEl = document.createElement('img');
         userIconEl.classList.add('ask__question-icon');
-        userIconEl.setAttribute('src', '/assets/images/chat-icon-profile2.svg'  );
+        userIconEl.setAttribute('src', '/assets/images/chat-icon-profile2.svg');
 
         userMessageContainerEl.appendChild(userMessageEl);
         userMessageContainerEl.appendChild(userIconEl);
@@ -78,7 +78,7 @@ formEl.addEventListener('submit', (e) => {
 
         aiMessageContainerEl.appendChild(vIconEl);
         aiMessageContainerEl.appendChild(aiMessageEl);
-        
+
         let responsesEl = document.getElementById('responses');
         responsesEl.appendChild(userMessageContainerEl);
         responsesEl.appendChild(aiMessageContainerEl);
@@ -92,11 +92,9 @@ formEl.addEventListener('submit', (e) => {
 });
 
 function getInitialPrompt() {
-    let prompt = 'The following is a conversation with an AI assistant named V. '
+    return 'The following is a conversation with an AI assistant named V. '
         + 'The assistant is helpful, understanding, and very friendly. '
         + 'Today is Valentine\'s day.\n\n'
         + 'Human: Hello, who are you?\n'
         + 'V: I am V, an AI that can help you with anything dating and relationship related. How can I help you?';
-
-    return prompt;
 }
