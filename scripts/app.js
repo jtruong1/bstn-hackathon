@@ -13,6 +13,10 @@ formEl.addEventListener('submit', (e) => {
     let message = e.target.message.value;
     message = message.trim();
     // console.log(message);
+    
+    if (message.length === 0) {
+        return;
+    }
 
     // After n responses, the prompt's context will reset to prevent the conversation from getting stuck in a loop.
     if (responseCount > 3) {
