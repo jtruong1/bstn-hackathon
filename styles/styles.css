@@ -22,7 +22,7 @@
   display: flex;
   flex-direction: column;
   width: 40%;
-  margin: 0 15%;
+  margin: 1% 15%;
   border-radius: 10px;
   background-color: #e3afbc80;
   border: 0.5px rgba(141, 0, 71, 0.164) solid;
@@ -41,6 +41,10 @@
     width: 85%;
     margin: 0 10%;
   }
+}
+.ask__messages {
+  overflow: auto;
+  max-height: 50vh;
 }
 .ask__container {
   display: flex;
@@ -66,8 +70,8 @@
 .ask__instructions {
   width: 30vw;
   height: 100vh;
-  border-top-left-radius: 30px;
-  border-bottom-left-radius: 30px;
+  border-top-left-radius: 50px;
+  border-bottom-left-radius: 50px;
   background-color: #E3AFBC;
 }
 .ask__logo {
