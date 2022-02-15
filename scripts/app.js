@@ -57,7 +57,12 @@ formEl.addEventListener('submit', (e) => {
         userMessageEl.classList.add('ask__question');
         userMessageEl.innerText = message;
 
+        let userIconEl = document.createElement('img');
+        userIconEl.classList.add('ask__question-icon');
+        userIconEl.setAttribute('src', '/assets/images/chat-icon-profile2.svg'  );
+
         userMessageContainerEl.appendChild(userMessageEl);
+        userMessageContainerEl.appendChild(userIconEl);
 
         // AI message
         let aiMessageContainerEl = document.createElement('div');
@@ -67,8 +72,13 @@ formEl.addEventListener('submit', (e) => {
         aiMessageEl.classList.add('ask__answer');
         aiMessageEl.innerText = response;
 
-        aiMessageContainerEl.appendChild(aiMessageEl);
+        let vIconEl = document.createElement('img');
+        vIconEl.classList.add('ask__answer-icon');
+        vIconEl.setAttribute('src', '/assets/images/chat-icon-v.svg');
 
+        aiMessageContainerEl.appendChild(vIconEl);
+        aiMessageContainerEl.appendChild(aiMessageEl);
+        
         let responsesEl = document.getElementById('responses');
         responsesEl.appendChild(userMessageContainerEl);
         responsesEl.appendChild(aiMessageContainerEl);

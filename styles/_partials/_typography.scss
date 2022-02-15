@@ -1,0 +1,19 @@
+@font-face {
+    font-family: 'Quicksand';
+    src: url(../../assets/fonts/Quicksand/static/Quicksand-Light.ttf);
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: 'Quicksand';
+    src: url(../../assets/fonts/Quicksand/static/Quicksand-Medium.ttf);
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: 'Quicksand';
+    src: url(../../assets/fonts/Quicksand/static/Q);
+    font-weight: 400;
+}
+
+$font-quicksand: 'Quicksand', sans-serif;
