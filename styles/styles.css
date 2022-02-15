@@ -23,7 +23,6 @@
   flex-direction: column;
   width: 40%;
   margin: 0 15%;
-  padding-bottom: 1rem;
   border-radius: 10px;
   background-color: #e3afbc80;
   border: 0.5px rgba(141, 0, 71, 0.164) solid;
@@ -76,7 +75,6 @@
   width: 32%;
   top: 5%;
   right: 12%;
-  background-color: none;
   transition: 0.25s ease-in;
 }
 @media (max-width: 768px) {
@@ -96,9 +94,8 @@
   display: flex;
   justify-content: center;
   font-size: 2rem;
-  margin: 1rem;
   color: #8d0047;
-  margin-top: 2rem;
+  margin: 2rem 1rem 1rem;
   border-bottom: rgba(141, 0, 71, 0.164) solid 1px;
   padding-bottom: 1rem;
 }
@@ -121,15 +118,10 @@
   min-height: 1rem;
   min-width: 1rem;
   max-width: 50%;
-  width: -webkit-fit-content;
-  width: -moz-fit-content;
   width: fit-content;
-  height: -webkit-fit-content;
-  height: -moz-fit-content;
   height: fit-content;
-  border-radius: 30px;
   border-style: none;
-  border-top-right-radius: 2px;
+  border-radius: 30px 2px 30px 30px;
   margin-bottom: 0.5rem;
   margin-top: 0.5rem;
   margin-right: 3%;
@@ -145,15 +137,10 @@
   min-height: 1rem;
   min-width: 1rem;
   padding: 0.5rem 1rem;
-  border-radius: 30px;
   border-style: none;
-  border-top-left-radius: 2px;
-  width: -webkit-fit-content;
-  width: -moz-fit-content;
+  border-radius: 2px 30px 30px 30px;
   width: fit-content;
   max-width: 50%;
-  height: -webkit-fit-content;
-  height: -moz-fit-content;
   height: fit-content;
   margin-left: 3%;
   margin-top: 0.5rem;
@@ -166,7 +153,8 @@
 }
 .ask__left {
   display: flex;
-  justify-content: flex-start;
+  flex-direction: row-reverse;
+  justify-content: flex-end;
 }
 .ask__input {
   width: 88%;
@@ -176,12 +164,9 @@
   display: flex;
   justify-content: center;
   border-style: none;
-  height: -webkit-fit-content;
-  height: -moz-fit-content;
-  height: fit-content;
-  height: 1rem;
   outline: none;
   border-radius: 30px;
+  overflow: hidden;
 }
 .ask__box {
   display: flex;
@@ -205,4 +190,6 @@
 .ask__button:active {
   background-color: #8d0047;
   color: #FFFFFF;
-}/*# sourceMappingURL=styles.css.map */
+}
+
+/*# sourceMappingURL=styles.css.map */

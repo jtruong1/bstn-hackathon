@@ -89,12 +89,12 @@ function displayUserMessage(message) {
     userMessageEl.classList.add('ask__question');
     userMessageEl.innerText = message;
 
-    let userIconEl = document.createElement('img');
-    userIconEl.classList.add('ask__question-icon');
-    userIconEl.setAttribute('src', '/assets/images/chat-icon-profile2.svg');
+    let userAvatarEl = document.createElement('img');
+    userAvatarEl.classList.add('ask__question-icon');
+    userAvatarEl.setAttribute('src', '/assets/images/chat-icon-profile2.svg');
 
     userMessageContainerEl.appendChild(userMessageEl);
-    userMessageContainerEl.appendChild(userIconEl);
+    userMessageContainerEl.appendChild(userAvatarEl);
 
     responsesEl.appendChild(userMessageContainerEl);
 }
@@ -109,12 +109,12 @@ function displayAiMessage(message) {
     aiMessageEl.classList.add('ask__answer');
     aiMessageEl.innerText = message;
 
-    let vIconEl = document.createElement('img');
-    vIconEl.classList.add('ask__answer-icon');
-    vIconEl.setAttribute('src', '/assets/images/chat-icon-v.svg');
+    let aiAvatarEl = document.createElement('img');
+    aiAvatarEl.classList.add('ask__answer-icon');
+    aiAvatarEl.setAttribute('src', '/assets/images/chat-icon-v.svg');
 
-    aiMessageContainerEl.appendChild(vIconEl);
     aiMessageContainerEl.appendChild(aiMessageEl);
+    aiMessageContainerEl.appendChild(aiAvatarEl);
 
     responsesEl.appendChild(aiMessageContainerEl);
 }
