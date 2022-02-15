@@ -4,11 +4,38 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="styllesheet" href="./styles/styles.scss">
+    <link rel="stylesheet" href="./styles/styles.css">
     <title>Ask V</title>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 </head>
 <body>
+
+    <main class="ask__container">
+        <section class="ask">
+            <h2 class="ask__title">Ask V anything!</h2>
+            <form class="ask__form">
+    
+                <div class="ask__right">
+                    <p class="ask__question" type="text"></p>
+                </div>
+    
+                <div class="ask__left">
+                    <p class="ask__answer" type="text"></p>
+                </div>
+    
+                    <textarea class="ask__input" name="" id="askInput" cols="30" rows="10"></textarea>
+                <div class="ask__box">
+                    <button class="ask__button">❤</button>
+                </div>
+            </form>
+        </section>
+        <img class="ask__logo" src="./assets/images/logo.png" alt="">
+        <section class="ask__info">
+    
+        <h2 class="ask__instructions"></h2>
+        </section>
+    </main>
+
     <form id="form">
         <div>
             <label for="message">Message</label>

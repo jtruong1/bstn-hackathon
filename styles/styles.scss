@@ -1,0 +1,126 @@
+@use './_partials/typography' as *;
+
+*{
+    margin: 0;
+    font-family: $font-quicksand;
+}
+
+
+.ask {
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+    height: 100%;
+    margin-left: 5%;
+    padding-bottom: 1rem;
+    border-radius: 10px;
+    background-color: #E3AFBC;
+
+
+    &__container {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        background-image: url(../assets/images/background-image.png);
+    }
+
+    &__instructions {
+        width: 39.3vw;
+        height: 100vh;
+        margin-left: 40%;
+        border-top-left-radius: 30px;
+        border-bottom-left-radius: 30px;
+        background-color: #E3AFBC;
+    }
+
+    &__logo {
+        position: absolute;
+        width: 32%;
+        top: 5%;
+        right: 25%;
+        background-color: none;
+    }
+
+    &__title {
+        display: flex;
+        justify-content: center;
+        font-size: 2rem;
+        margin: 1rem;
+        color: #5D001E;
+    }
+
+    &__subtitle {
+        display: flex;
+        justify-content: center;
+        padding: 0.5rem 0;
+    }
+
+    &__right {
+        display: flex;
+        justify-content: flex-end;
+    }
+
+    &__question {
+        background-color: #FFFFFF;
+        min-height: 1rem;
+        min-width: 1rem;
+        max-width: 50%;
+        width: fit-content;
+        height: fit-content;
+        border-radius: 30px;
+        border-style: none;
+        border-top-right-radius: 2px;
+        margin-bottom: 0.5rem;
+        margin-top: 0.5rem;
+        margin-right: 5%;
+        padding: 0.5rem 1rem;
+        outline: none;
+    }
+
+    &__answer {
+        background-color: #FFFFFF;
+        min-height: 1rem;
+        min-width: 1rem;
+        padding: 0.5rem 1rem;
+        border-radius: 30px;
+        border-style: none;
+        border-top-left-radius: 2px;
+        width: fit-content;
+        max-width: 50%;
+        height: fit-content;
+        margin-left: 5%;
+        margin-top: 0.5rem;
+        margin-bottom: 0.5rem;
+        outline: none;
+    }
+
+    &__input {
+        width: 88%;
+        margin: 10% 4% 3% 4%;        
+        padding: 2%;
+        resize: none;
+        display: flex;
+        justify-content: center;
+        border-style: none;
+        height: fit-content;
+        height: 1rem;
+        outline: none;
+        border-radius: 30px;
+    }
+
+    &__box {
+        display: flex;
+        justify-content: center;
+        align-content: center;
+    }
+
+    &__button {
+        background-color:#EE4C7C;
+        margin: 1rem 0;
+        border-style: none;
+        border-radius: 4px;
+        width: 60%;
+        height: 2rem;
+        color: #5D001E;
+    }
+}
