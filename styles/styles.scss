@@ -10,7 +10,8 @@
     display: flex;
     flex-direction: column;
     width: 40%;
-    margin: 0 15%;
+    margin: 1% 15%;
+    // max-height: 80%;
     padding-bottom: 1rem;
     border-radius: 10px;
     background-color: #e3afbc80;
@@ -27,6 +28,11 @@
     @include desktop {
         width: 85%;
         margin: 0 10%;
+    }
+
+    &__messages {
+        overflow: auto;
+        max-height: 50vh;
     }
 
     &__container {

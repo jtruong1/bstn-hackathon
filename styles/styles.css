@@ -22,7 +22,7 @@
   display: flex;
   flex-direction: column;
   width: 40%;
-  margin: 0 15%;
+  margin: 1% 15%;
   padding-bottom: 1rem;
   border-radius: 10px;
   background-color: #e3afbc80;
@@ -42,6 +42,10 @@
     width: 85%;
     margin: 0 10%;
   }
+}
+.ask__messages {
+  overflow: auto;
+  max-height: 50vh;
 }
 .ask__container {
   display: flex;
