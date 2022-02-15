@@ -4,6 +4,8 @@ let messagesEl = document.querySelector('.ask__messages');
 
 messagesEl.addEventListener('reply', (e) => {
     displayAiMessage(e.detail);
+
+    // We can put timeout/delay logic here so we can do typing indicators, animations, etc.
 });
 
 let formEl = document.querySelector('.ask__form');
@@ -29,6 +31,7 @@ formEl.addEventListener('submit', (e) => {
     // Append our message to the prompt.
     currentPrompt += '\nHuman: ' + message + '\nV: ';
 
+    // Display our message first before waiting for the AI's response.
     displayUserMessage(message);
 
     let response = axios.post(
