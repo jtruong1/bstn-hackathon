@@ -1,21 +1,22 @@
-let currentPrompt = getOriginalPrompt();
+let currentPrompt = getInitialPrompt();
 let responseCount = 0;
 
-let formEl = document.getElementById('form');
+let formEl = document.querySelector('.ask__form');
 
 formEl.addEventListener('submit', (e) => {
     e.preventDefault();
 
     let message = e.target.message.value;
+    message = message.trim();
     console.log(message);
 
     // After n responses, the prompt's context will reset to prevent the conversation from getting stuck in a loop.
     if (responseCount > 3) {
-        currentPrompt = getOriginalPrompt();
+        // currentPrompt = getInitialPrompt();
     }
 
     // Append our message to the prompt.
-    currentPrompt += message;
+    currentPrompt += '\nHuman: ' + message + '\nV: ';
 
     let response = axios.post(
         'https://api.openai.com/v1/engines/text-davinci-001/completions',
@@ -25,9 +26,9 @@ formEl.addEventListener('submit', (e) => {
             temperature: 0.9,
             max_tokens: 150,
             top_p: 1,
-            frequency_penalty: 1.0,
+            frequency_penalty: 2.0,
             presence_penalty: 0.6,
-            stop: [" Human:", " AI:"]
+            stop: [" Human:", " V:"]
         },
         {
             headers: {
@@ -39,25 +40,53 @@ formEl.addEventListener('submit', (e) => {
 
     response.then(result => {
         let response = result.data.choices[0].text;
+        response = response.trim();
 
+        // Append the AI's response.
         currentPrompt += response;
-        currentPrompt += '\nHuman: ';
 
         console.log('Message: ' + message);
         console.log('Response: ' + response);
         console.log('Prompt: ' + currentPrompt);
 
+        // User message
+        let userMessageContainerEl = document.createElement('div');
+        userMessageContainerEl.classList.add('ask__right');
+
+        let userMessageEl = document.createElement('p');
+        userMessageEl.classList.add('ask__question');
+        userMessageEl.innerText = message;
+
+        userMessageContainerEl.appendChild(userMessageEl);
+
+        // AI message
+        let aiMessageContainerEl = document.createElement('div');
+        aiMessageContainerEl.classList.add('ask__left');
+
+        let aiMessageEl = document.createElement('p');
+        aiMessageEl.classList.add('ask__answer');
+        aiMessageEl.innerText = response;
+
+        aiMessageContainerEl.appendChild(aiMessageEl);
+
         let responsesEl = document.getElementById('responses');
+        responsesEl.appendChild(userMessageContainerEl);
+        responsesEl.appendChild(aiMessageContainerEl);
 
-        let responseEl = document.createElement('p');
-        responseEl.innerText = response;
-
-        responsesEl.appendChild(responseEl);
+        responseCount++;
     }).catch(error => {
         console.log(error);
+
+        responseCount = 0;
     });
 });
 
-function getOriginalPrompt() {
-    return 'The following is a conversation with an AI assistant named "V" that provides dating and relationship advice. The assistant is helpful, understanding, and very friendly. Today is Valentine\'s day\n\nV: How can I help you today?\nHuman: ';
+function getInitialPrompt() {
+    let prompt = 'The following is a conversation with an AI assistant named V. '
+        + 'The assistant is helpful, understanding, and very friendly. '
+        + 'Today is Valentine\'s day.\n\n'
+        + 'Human: Hello, who are you?\n'
+        + 'V: I am V, an AI that can help you with anything dating and relationship related. How can I help you?';
+
+    return prompt;
 }

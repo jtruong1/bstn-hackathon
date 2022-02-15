@@ -14,16 +14,9 @@
         <section class="ask">
             <h2 class="ask__title">Ask V anything!</h2>
             <form class="ask__form">
-    
-                <div class="ask__right">
-                    <p class="ask__question" type="text"></p>
-                </div>
-    
-                <div class="ask__left">
-                    <p class="ask__answer" type="text"></p>
-                </div>
-    
-                    <textarea class="ask__input" name="" id="askInput" cols="30" rows="10"></textarea>
+                <div id="responses"></div>
+
+                    <textarea class="ask__input" name="message" id="askInput" cols="30" rows="10"></textarea>
                 <div class="ask__box">
                     <button class="ask__button">❤</button>
                 </div>
@@ -31,20 +24,10 @@
         </section>
         <img class="ask__logo" src="./assets/images/logo.png" alt="">
         <section class="ask__info">
-    
+
         <h2 class="ask__instructions"></h2>
         </section>
     </main>
-
-    <form id="form">
-        <div>
-            <label for="message">Message</label>
-            <textarea id="message" name="message"></textarea>
-        </div>
-        <button>Submit</button>
-    </form>
-
-    <div id="responses"></div>
 
     <script src="scripts/app.js"></script>
 </body>
