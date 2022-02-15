@@ -49,7 +49,7 @@ formEl.addEventListener('submit', (e) => {
         {
             headers: {
                 'Content-Type': 'application/json',
-                'Authorization': 'Bearer ' + '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'
+                'Authorization': 'Bearer ' + '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'
             }
         },
     );
