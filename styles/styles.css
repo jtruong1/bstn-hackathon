@@ -1,26 +1,34 @@
 @font-face {
-  font-family: "Quicksand";
-  src: url(../../assets/fonts/Quicksand/static/Quicksand-Light.ttf);
-  font-weight: 400;
+  font-family: 'Quicksand';
+  src: url(../assets/fonts/Quicksand/static/Quicksand-Light.ttf);
+  font-weight: 300;
 }
+
 @font-face {
-  font-family: "Quicksand";
-  src: url(../../assets/fonts/Quicksand/static/Quicksand-Medium.ttf);
-  font-weight: 400;
+  font-family: 'Quicksand';
+  src: url(../assets/fonts/Quicksand/static/Quicksand-Medium.ttf);
+  font-weight: 500;
 }
+
 @font-face {
-  font-family: "Quicksand";
-  src: url(../../assets/fonts/Quicksand/static/Q);
-  font-weight: 400;
+  font-family: 'Quicksand';
+  src: url(../assets/fonts/Quicksand/static/Quicksand-Bold.ttf);
+  font-weight: 700;
 }
+
 * {
   margin: 0;
   font-family: "Quicksand", sans-serif;
 }
 
 .ask {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   width: 40%;
   height: 100%;
   margin-left: 5%;
@@ -28,12 +36,21 @@
   border-radius: 10px;
   background-color: #E3AFBC;
 }
+
 .ask__container {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: row;
-  align-items: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   background-image: url(../assets/images/background-image.png);
 }
+
 .ask__instructions {
   width: 39.3vw;
   height: 100vh;
@@ -42,6 +59,7 @@
   border-bottom-left-radius: 30px;
   background-color: #E3AFBC;
 }
+
 .ask__logo {
   position: absolute;
   width: 32%;
@@ -49,22 +67,38 @@
   right: 25%;
   background-color: none;
 }
+
 .ask__title {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   font-size: 2rem;
   margin: 1rem;
   color: #5D001E;
 }
+
 .ask__subtitle {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   padding: 0.5rem 0;
 }
+
 .ask__right {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: flex-end;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
 }
+
 .ask__question {
   background-color: #FFFFFF;
   min-height: 1rem;
@@ -85,6 +119,7 @@
   padding: 0.5rem 1rem;
   outline: none;
 }
+
 .ask__answer {
   background-color: #FFFFFF;
   min-height: 1rem;
@@ -105,13 +140,18 @@
   margin-bottom: 0.5rem;
   outline: none;
 }
+
 .ask__input {
   width: 88%;
   margin: 10% 4% 3% 4%;
   padding: 2%;
   resize: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   border-style: none;
   height: -webkit-fit-content;
   height: -moz-fit-content;
@@ -120,11 +160,18 @@
   outline: none;
   border-radius: 30px;
 }
+
 .ask__box {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: center;
-  align-content: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-flex-line-pack: center;
+      align-content: center;
 }
+
 .ask__button {
   background-color: #EE4C7C;
   margin: 1rem 0;
@@ -133,4 +180,5 @@
   width: 60%;
   height: 2rem;
   color: #5D001E;
-}/*# sourceMappingURL=styles.css.map */
+}
+/*# sourceMappingURL=styles.css.map */

@@ -1,4 +1,4 @@
-@use './_partials/typography' as *;
+@import 'partials/typography';
 
 *{
     margin: 0;
@@ -96,7 +96,7 @@
 
     &__input {
         width: 88%;
-        margin: 10% 4% 3% 4%;        
+        margin: 10% 4% 3% 4%;
         padding: 2%;
         resize: none;
         display: flex;
