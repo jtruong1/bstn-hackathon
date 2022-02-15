@@ -5,10 +5,10 @@ let formEl = document.querySelector('.ask__form');
 
 formEl.addEventListener('submit', (e) => {
     e.preventDefault();
-
     let message = e.target.message.value;
     message = message.trim();
     console.log(message);
+    e.target.message.value = ""
 
     // After n responses, the prompt's context will reset to prevent the conversation from getting stuck in a loop.
     if (responseCount > 3) {
@@ -100,3 +100,13 @@ function getInitialPrompt() {
 
     return prompt;
 }
+
+let messageEl = document.getElementById('askInput')
+messageEl.addEventListener('keypress', (e) => {
+ 
+    if ('Enter' === e.key)  {
+        e.preventDefault();
+        e.target.form.dispatchEvent(new Event("submit", {cancelable: true}));
+        console.log('hello')
+    }    
+})
